@@ -17,6 +17,7 @@ class Form {
     this.titleImg.class("gameTitle")
     this.playButton.class("customButton")
     this.input.class('customInput')
+    this.greeting.class('greeting')
   }
 
   hide() {
@@ -25,9 +26,20 @@ class Form {
     this.input.hide();
   }
 
+  handleMousePressed(){
+    this.playButton.mousePressed(()=>{
+      this.input.hide()
+      this.playButton.hide()
+      var message = `Olá, ${this.input.value()} </br>
+      Espere o próximo jogador entrar...`
+      this.greeting.html(message)
+    })
+  }
+
   display(){
     this.setElementsPosition()
     this.setElementsStyle()
+    this.handleMousePressed()
   }
 
 }
